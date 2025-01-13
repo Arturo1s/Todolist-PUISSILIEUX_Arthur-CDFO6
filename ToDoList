@@ -68,7 +68,7 @@ def main():
             print("\nGoodbye!")
             break
         else:
-            print("Invalid choice! Please select a valid option.")
+            print("Bugé&_çè(ç_(-çé&'-é(')")
 
 if __name__ == "__main__":
     main()
