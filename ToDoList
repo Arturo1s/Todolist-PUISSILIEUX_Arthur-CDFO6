@@ -1,4 +1,5 @@
 import os
+from datetime import datetime
 
 # Task list
 tasks = []
@@ -9,24 +10,34 @@ def display_menu():
     print("2. Add Task")
     print("3. Delete Task")
     print("4. Mark Task as Completed")
-    print("5. Exit")
+    print("5. Exit ")
 
 def view_tasks():
     if not tasks:
         print("\nNo tasks found!")
         return
     print("\nTasks:")
-    for i, (task, completed) in enumerate(tasks, start=1):
-        status = "[✓]" if completed else "[ ]"
-        print(f"{i}. {status} {task}")
+    for i, (task, completed, due_date) in enumerate(tasks, start=1):
+        status = "[\u2713]" if completed else "[ ]"
+        due_date_str = f" (Due: {due_date})" if due_date else ""
+        print(f"{i}. {status} {task}{due_date_str}")
 
 def add_task():
     task = input("\nEnter the task: ").strip()
-    if task:
-        tasks.append((task, False))
-        print(f"Task '{task}' added successfully!")
-    else:
+    if not task:
         print("Task cannot be empty!")
+        return
+    
+    due_date_str = input("Enter the due date (YYYY-MM-DD) or leave blank: ").strip()
+    due_date = None
+    if due_date_str:
+        try:
+            due_date = datetime.strptime(due_date_str, "%Y-%m-%d").date()
+        except ValueError:
+            print("Invalid date format! Task will be added without a due date.")
+    
+    tasks.append((task, False, due_date))
+    print(f"Task '{task}' added successfully!")
 
 def delete_task():
     view_tasks()
@@ -45,8 +56,9 @@ def mark_task_completed():
     try:
         task_num = int(input("\nEnter the task number to mark as completed: "))
         if 1 <= task_num <= len(tasks):
-            tasks[task_num - 1] = (tasks[task_num - 1][0], True)
-            print(f"Task '{tasks[task_num - 1][0]}' marked as completed!")
+            task, _, due_date = tasks[task_num - 1]
+            tasks[task_num - 1] = (task, True, due_date)
+            print(f"Task '{task}' marked as completed!")
         else:
             print("Invalid task number!")
     except ValueError:
@@ -68,7 +80,7 @@ def main():
             print("\nGoodbye!")
             break
         else:
-            print("Nombre invalide")
+            print("Invalid choice! Please select a valid option.")
 
 if __name__ == "__main__":
     main()
