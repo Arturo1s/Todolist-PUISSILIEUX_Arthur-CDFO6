@@ -1,0 +1,74 @@
+import os
+
+# Task list
+tasks = []
+
+def display_menu():
+    print("\n=== Todo List Application ===")
+    print("1. View Tasks")
+    print("2. Add Task")
+    print("3. Delete Task")
+    print("4. Mark Task as Completed")
+    print("5. Exit")
+
+def view_tasks():
+    if not tasks:
+        print("\nNo tasks found!")
+        return
+    print("\nTasks:")
+    for i, (task, completed) in enumerate(tasks, start=1):
+        status = "[✓]" if completed else "[ ]"
+        print(f"{i}. {status} {task}")
+
+def add_task():
+    task = input("\nEnter the task: ").strip()
+    if task:
+        tasks.append((task, False))
+        print(f"Task '{task}' added successfully!")
+    else:
+        print("Task cannot be empty!")
+
+def delete_task():
+    view_tasks()
+    try:
+        task_num = int(input("\nEnter the task number to delete: "))
+        if 1 <= task_num <= len(tasks):
+            removed_task = tasks.pop(task_num - 1)
+            print(f"Task '{removed_task[0]}' deleted successfully!")
+        else:
+            print("Invalid task number!")
+    except ValueError:
+        print("Please enter a valid number!")
+
+def mark_task_completed():
+    view_tasks()
+    try:
+        task_num = int(input("\nEnter the task number to mark as completed: "))
+        if 1 <= task_num <= len(tasks):
+            tasks[task_num - 1] = (tasks[task_num - 1][0], True)
+            print(f"Task '{tasks[task_num - 1][0]}' marked as completed!")
+        else:
+            print("Invalid task number!")
+    except ValueError:
+        print("Please enter a valid number!")
+
+def main():
+    while True:
+        display_menu()
+        choice = input("\nChoose an option: ").strip()
+        if choice == "1":
+            view_tasks()
+        elif choice == "2":
+            add_task()
+        elif choice == "3":
+            delete_task()
+        elif choice == "4":
+            mark_task_completed()
+        elif choice == "5":
+            print("\nGoodbye!")
+            break
+        else:
+            print("Invalid choice! Please select a valid option.")
+
+if __name__ == "__main__":
+    main()
