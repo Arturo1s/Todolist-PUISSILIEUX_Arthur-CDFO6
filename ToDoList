@@ -44,7 +44,7 @@ def mark_task_completed():
     view_tasks()
     try:
         task_num = int(input("\nEnter the task number to mark as completed: "))
-        if 1 <= task_num <= len(tasks):
+        if 1 <= task_num <= len(tasks)+1:
             tasks[task_num - 1] = (tasks[task_num - 1][0], True)
             print(f"Task '{tasks[task_num - 1][0]}' marked as completed!")
         else:
@@ -68,7 +68,7 @@ def main():
             print("\nGoodbye!")
             break
         else:
-            print("Bugé&_çè(ç_(-çé&'-é(')")
+            print("Nombre invalide")
 
 if __name__ == "__main__":
     main()
