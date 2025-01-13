@@ -15,7 +15,7 @@ A simple console-based Todo List application designed to help users manage their
 ## How to run the project
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Arturo1s/Todolist-PUISSILIEUX_Arthur-CDFO6.git
+   git clone https://github.com/your-username/Todolist-PUISSILIEUX_Arthur-CDFO6.git
    cd Todolist-PUISSILIEUX_Arthur-CDFO6
    ```
 2. Run the application:
@@ -33,7 +33,7 @@ Contributions are welcome! Follow the steps below to contribute to this project:
 2. **Clone the Forked Repository**
    - Use the following command to clone the repository to your local machine:
      ```bash
-     git clone https://github.com/Arturo1s/Todolist-PUISSILIEUX_Arthur-CDFO6.git
+     git clone https://github.com/your-username/Todolist-PUISSILIEUX_Arthur-CDFO6.git
      cd Todolist-PUISSILIEUX_Arthur-CDFO6.git
      ```
 
@@ -76,7 +76,7 @@ Contributions are welcome! Follow the steps below to contribute to this project:
 ---
 
 ### Contribution Tips
-- Check the existing [issues](https://github.com/Arturo1s/Todolist-PUISSILIEUX_Arthur-CDFO6.git/issues) for tasks or improvements you can work on.
+- Check the existing [issues](https://github.com/your-username/Todolist-PUISSILIEUX_Arthur-CDFO6.git/issues) for tasks or improvements you can work on.
 - Ensure your code is well-documented and adheres to the project style.
 - Be respectful and constructive when discussing feedback or issues.
 
